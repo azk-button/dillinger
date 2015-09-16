@@ -39,20 +39,38 @@ And of course Dillinger itself is open source with a [public repository](https:/
 
 ### Installation
 
-You need Gulp installed globally:
+## Running locally
 
-```sh
-$ npm i -g gulp
+Click the button bellow to quickly and safely install this project on your local machine.
+
+[![Run project](https://s3-sa-east-1.amazonaws.com/assets.azk.io/azk-button.png)](http://run-stage.azk.io/start/?repo=azk-button/dillinger&ref=azkfile)
+
+The `Run Project` button employs `azk`, a lightweight open source orchestration tool that will automatically isolate and configure the application's environment for you.
+
+Learn more about `azk` [here](Azkfile.md).
+
+## Deploying to DigitalOcean
+
+After you run this project locally using [`Run Project` button](#running-locally), deploying to [DigitalOcean](http://digitalocean.com/) is very simple.
+
+First, be sure you have SSH keys configured in your machine. If you don't have it yet (or if you aren't sure about it), just follow steps 1 and 2 of [this tutorial](https://help.github.com/articles/generating-ssh-keys/).
+
+Next, put your [personal access token](https://cloud.digitalocean.com/settings/applications) into a `.env` file:
+
+```bash
+$ cd path/to/the/project
+$ echo "DEPLOY_API_TOKEN=<YOUR-PERSONAL-ACCESS-TOKEN>" >> .env
 ```
 
-```sh
-$ git clone [git-repo-url] dillinger
-$ cd dillinger
-$ npm i -d
-$ mkdir -p public/files/{md,html,pdf}
-$ gulp build --prod
-$ NODE_ENV=production node app
+Then, just run the following:
+
+```bash
+$ azk shell deploy
 ```
+
+The `Run Project` button employs `azk`, a lightweight open source orchestration tool that will automatically isolate and configure the application's environment for you.
+
+Find further instructions on how to deploy to DigitalOcean using `azk` [here](http://docs.azk.io/en/deploy/README.html).
 
 ### Plugins
 
