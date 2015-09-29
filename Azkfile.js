@@ -4,11 +4,11 @@
 systems({
   dillinger: {
     depends: [],
-    image: { docker: 'azukiapp/node:0.10' },
+    image: { docker: 'azukiapp/node:0.12' },
     provision: [
-      'npm install -d',
+      'npm install',
       'npm install gulp',
-      'node_modules/.bin/gulp build --prod &',
+      'node_modules/.bin/gulp build --prod',
     ],
     workdir: '/azk/#{manifest.dir}',
     shell: '/bin/bash',
