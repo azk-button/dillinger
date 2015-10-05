@@ -3,10 +3,9 @@
 #Dillinger
 node_modules/*
 logs/*
-public/files/md/*.md
-public/files/html/*.html
-public/css/app.css
-public/js/bundle.js
+downloads/files/md/*.md
+downloads/files/html/*.html
+downloads/css/style.css
 
 *-config.json
 backup/*
@@ -50,3 +49,5 @@ npm-debug.log
 # Vim
 *.swp
 /.azk
+public/css/app.css
+public/js/bundle.js

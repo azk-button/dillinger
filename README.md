@@ -19,7 +19,7 @@ Markdown is a lightweight markup language based on the formatting conventions th
 This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 
 ### Version
-3.1.1
+3.2.0
 
 ### Tech
 
@@ -40,7 +40,22 @@ And of course Dillinger itself is open source with a [public repository][dill]
 
 ### Installation
 
-## Running locally
+You need Gulp installed globally:
+
+```sh
+$ npm i -g gulp
+```
+
+```sh
+$ git clone [git-repo-url] dillinger
+$ cd dillinger
+$ npm i -d
+$ mkdir -p downloads/files/{md,html,pdf}
+$ gulp build --prod
+$ NODE_ENV=production node app
+```
+
+### Running locally
 
 Click the button bellow to quickly and safely install this project on your local machine.
 
