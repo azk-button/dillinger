@@ -4,10 +4,14 @@
 systems({
   dillinger: {
     depends: [],
-    image: { docker: 'azukiapp/node:0.12' },
+    image: { docker: 'node:latest' },
     provision: [
       'npm install',
       'npm install gulp',
+
+      // FIXME: remove this line after this PR is accepted
+      // FIXME:  - https://github.com/SE7ENSKY/group-css-media-queries/pull/8
+      'wget https://raw.githubusercontent.com/saitodisse/group-css-media-queries/71fe8b181650b20790aca325988ac0fb9d9fe4a4/index.js -O ./node_modules/gulp-group-css-media-queries/node_modules/group-css-media-queries/index.js',
       'node_modules/.bin/gulp build --prod',
     ],
     workdir: '/azk/#{manifest.dir}',
@@ -31,19 +35,12 @@ systems({
       http: '8080/tcp'
     },
     envs: {
-      // NODE_ENV: 'production',
       HOST_NAME: '#{system.name}.#{azk.default_domain}',
-      // Make sure that the PORT value is the same as the one
-      // in ports/http below, and that it's also the same
-      // if you're setting it in a .env file
       PORT: '8080',
       PATH: 'node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
     }
   },
 
-  //////////
-  /// deploy
-  //////////
   deploy: {
     image: { docker: 'azukiapp/deploy-digitalocean' },
     mounts: {
