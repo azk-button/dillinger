@@ -7,20 +7,14 @@ systems({
     image: { docker: 'node:latest' },
     provision: [
       'npm install',
-      // FIXME: https://github.com/SE7ENSKY/group-css-media-queries/pull/8
-      // 'wget https://raw.githubusercontent.com/saitodisse/group-css-media-queries/71fe8b181650b20790aca325988ac0fb9d9fe4a4/index.js -O ./node_modules/gulp-group-css-media-queries/node_modules/group-css-media-queries/index.js',
-      // 'node_modules/.bin/gulp build --prod',
+      'node_modules/.bin/gulp build --prod',
     ],
     workdir: '/azk/#{manifest.dir}',
     shell: '/bin/bash',
-
-    // FIXME: https://github.com/joemccann/dillinger/issues/378
-    // command: 'NODE_ENV=production node app',
-    command: 'node_modules/.bin/gulp build & node app',
-
+    command: 'node app',
     wait: 30,
     mounts: {
-      '/azk/#{manifest.dir}': sync('.'),
+      '/azk/#{manifest.dir}': path('.'),
       '/azk/#{manifest.dir}/node_modules': persistent('#{manifest.dir}/node_modules'),
       '/azk/#{manifest.dir}/bower_components': persistent('#{manifest.dir}/bower_components'),
     },
@@ -36,9 +30,10 @@ systems({
       http: '8080/tcp'
     },
     envs: {
+      PATH: 'node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+      NODE_ENV: 'production',
       HOST_NAME: '#{system.name}.#{azk.default_domain}',
       PORT: '8080',
-      PATH: 'node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
     }
   },
 
