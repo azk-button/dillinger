@@ -8,12 +8,6 @@ systems({
     provision: [
       'npm install',
       'npm install gulp',
-
-      // FIXME: remove this after gulp-group-css-media-queries
-      // is updated. https://github.com/SE7ENSKY/group-css-media-queries/pull/8
-      'wget https://raw.githubusercontent.com/saitodisse/group-css-media-queries/71fe8b181650b20790aca325988ac0fb9d9fe4a4/index.js -O ./node_modules/gulp-group-css-media-queries/node_modules/group-css-media-queries/index.js',
-      'wget https://raw.githubusercontent.com/saitodisse/group-css-media-queries/71fe8b181650b20790aca325988ac0fb9d9fe4a4/index.js -O ./node_modules/group-css-media-queries/index.js',
-
       'node_modules/.bin/gulp build --prod',
     ],
     workdir: '/azk/#{manifest.dir}',
