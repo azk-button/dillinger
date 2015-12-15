@@ -19,7 +19,7 @@ Markdown is a lightweight markup language based on the formatting conventions th
 This text you see here is *actually* written in Markdown! To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.
 
 ### Version
-3.2.0
+3.2.7
 
 ### Tech
 
@@ -128,6 +128,14 @@ $ gulp watch
 $ karma start
 ```
 
+### Docker, N|Solid and NGINX
+
+More details coming soon.
+
+#### docker-compose.yml
+
+Change the path for the nginx conf mounting path to your full path, not mine!
+
 ### Todos
 
  - Write Tests
@@ -143,7 +151,7 @@ MIT
 
 **Free Software, Hell Yeah!**
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does it's job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 
    [dill]: <https://github.com/joemccann/dillinger>
