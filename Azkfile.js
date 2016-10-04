@@ -4,7 +4,7 @@
 systems({
   dillinger: {
     depends: [],
-    image: { docker: 'azukiapp/node:4' },
+    image: { docker: 'azukiapp/node:0.12' },
     provision: [
       'npm install',
       'npm install gulp',
